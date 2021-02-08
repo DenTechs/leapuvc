@@ -192,8 +192,8 @@ def retrieveLeapCalibration(cap, resolution):
         xdata = np.linspace(-0.99, -0.35, 33)
         xdata = (1.0 / (xdata** 2)) - 1.0
         try:
-            ydata = monotonicWarp(xdata, *calibration[cam]["intrinsics"]["radial"])
-            k, pcov = curve_fit(monotonicWarp, ydata, xdata)
+            ydata = monotonicWarp1(xdata, *calibration[cam]["intrinsics"]["radial"])
+            k, pcov = curve_fit(monotonicWarp1, ydata, xdata)
         except:
             # The first fit failed, try another one...
             ydata = monotonicWarp2(xdata, *calibration[cam]["intrinsics"]["radial"])
