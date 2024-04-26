@@ -18,7 +18,7 @@ class leapImageThread(threading.Thread):
         self.cam = cv2.VideoCapture(self.source)
         self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, resolution[0])
         self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, resolution[1])
-        self.cam.set(cv2.CAP_PROP_CONVERT_RGB, False) # Does not work reliably in DirectShow :(
+        self.cam.set(cv2.CAP_PROP_CONVERT_RGB, 0.0) # Does not work reliably in DirectShow :(
         self.resolution = (int(self.cam.get(cv2.CAP_PROP_FRAME_WIDTH)), 
                            int(self.cam.get(cv2.CAP_PROP_FRAME_HEIGHT)))
         self.frame = None
